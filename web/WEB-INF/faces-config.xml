@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>fr</supported-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>ch.hearc.ig.odi.serie8.customeraccountjsf.presentation.bundle.messages_fr</base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
+    
+    <managed-bean>
+        <managed-bean-name>customersBean</managed-bean-name>
+        <managed-bean-class>ch.hearc.ig.odi.serie8.customeraccountjsf.beans.CustomersBean</managed-bean-class>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>customerCreateBean</managed-bean-name>
+        <managed-bean-class>ch.hearc.ig.odi.serie8.customeraccountjsf.beans.CustomerCreateBean</managed-bean-class>
+    </managed-bean>  
+    <managed-bean>
+        <managed-bean-name>accountListBean</managed-bean-name>
+        <managed-bean-class>ch.hearc.ig.odi.serie8.customeraccountjsf.beans.AccountListBean</managed-bean-class>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>accountDetailsBean</managed-bean-name>
+        <managed-bean-class>ch.hearc.ig.odi.serie8.customeraccountjsf.beans.AccountDetailsBean</managed-bean-class>
+    </managed-bean>
+    
+    <navigation-rule>
+        <from-view-id>/createCustomer.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{customerCreateBean.save}</from-action>
+            <from-outcome>Success</from-outcome>
+            <to-view-id>/createCustomerOk.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/customersList.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{accountListBean.recupClient(cli)}</from-action>
+            <from-outcome>Success</from-outcome>
+            <to-view-id>/detailsCustomer.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/detailsCustomer.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{accountDetailsBean.recupAccount(account)}</from-action>
+            <from-outcome>Success</from-outcome>
+            <to-view-id>/detailsAccount.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+</faces-config>

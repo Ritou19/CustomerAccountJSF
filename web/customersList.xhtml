@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msg.listeClients}</title>
+    </h:head>
+    <h:body>
+
+        <h1>#{msg.listeClients}</h1>
+
+        <f:view>
+            <h:form id="formCleints">
+                <h:dataTable id="dtClients" var="cli" value="#{customersBean.lesClients}">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg.num}"/>
+                        </f:facet>
+                        <h:commandLink id="inputNumero" action="#{accountListBean.recupClient(cli)}">
+                            <h:outputText value="#{cli.number}"/>
+                        </h:commandLink>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg.nom}"/>
+                        </f:facet>
+                        <h:outputText id="inputNom" value="#{cli.firstName}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg.prenom}"/>
+                        </f:facet>
+                        <h:outputText  id="inputPrenom" value="#{cli.lastName}"/>
+                    </h:column>
+
+                </h:dataTable>
+                <br/>
+                <h:commandButton id="addButton" value="#{msg.ajouter}" action="createCustomer.xhtml"/>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+
