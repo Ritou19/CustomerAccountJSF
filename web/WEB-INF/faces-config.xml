@@ -51,7 +51,7 @@
     <navigation-rule>
         <from-view-id>/detailsCustomer.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{accountDetailsBean.recupAccount(account)}</from-action>
+            <from-action>#{accountDetailsBean.recupAccount(acc)}</from-action>
             <from-outcome>Success</from-outcome>
             <to-view-id>/detailsAccount.xhtml</to-view-id>
         </navigation-case>

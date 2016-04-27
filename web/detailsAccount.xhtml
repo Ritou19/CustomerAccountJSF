@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <link rel="stylesheet" type="text/css" href="css/cssBase.css" media="all"/>
+ 
+        
     <h:head>
         <title>#{msg.detailsCompte}</title>
 
@@ -16,22 +15,40 @@ and open the template in the editor.
 
         <h1>#{msg.detailsCompte}</h1>
 
-
-        <h:outputLabel value="#{msg.num} :"/>
-
-        <h:outputText  value="#{accountDetailsBean.number}"/><br></br>
-
-        <h:outputLabel value="#{msg.nom} :"/>
-
-        <h:outputText  value="#{accountDetailsBean.name}"/><br></br>
-
-        <h:outputLabel value="#{msg.solde} :"/>
-
-        <h:outputText value="#{accountDetailsBean.balance}"/><br></br>
-
-        <h:outputLabel value="#{msg.taux} :"/>
-
-        <h:outputText value="#{accountDetailsBean.rate}"/><br></br>
+        <table>
+            <tr>
+                <th align="left" width="62%">
+                    <h:outputLabel value="#{msg.num} :  "/>
+                </th>
+                <td>
+                    <h:outputText value="#{accountDetailsBean.number}"/><br></br>
+                </td>
+            </tr>
+            <tr>
+                <th align="left">
+                    <h:outputLabel style="margin-right: 10px" value="#{msg.nom} :  "/>
+                </th>
+                <td>
+                    <h:outputText  value="#{accountDetailsBean.name}"/><br></br>
+                </td>
+            </tr>
+            <tr>
+                <th align="left">
+                    <h:outputLabel style="margin-right: 10px" value="#{msg.solde} :  "/>
+                </th>
+                <td>
+                    <h:outputText value="#{accountDetailsBean.balance}"/><br></br>
+                </td>
+            </tr>
+            <tr>
+                <th align="left">
+                    <h:outputLabel style="margin-right: 10px" value="#{msg.taux} :  "/>
+                </th>
+                <td>
+                    <h:outputText value="#{accountDetailsBean.rate}"/><br></br>
+                </td>
+            </tr>         
+        </table>
 
         <h:form>
             <h:commandButton value="#{msg.retourPageClient}" action="detailsCustomer.xhtml"/> <br></br>

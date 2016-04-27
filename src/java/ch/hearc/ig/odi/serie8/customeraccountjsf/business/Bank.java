@@ -48,6 +48,7 @@ public class Bank {
     public void addAccount(String number, String name, Double rate, Customer customer) {
         Account account = new Account(number, name, rate, customer);
         accounts.put(name, account);
+        customer.addAccount(account);
     }
 
     public void addIndividual(Integer number, String firstName, String lastName, Date birthday, String email) {
